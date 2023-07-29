@@ -23,7 +23,7 @@ SELECT * FROM `exams` WHERE `date` = '2020-06-20' AND `hour` > '14:00:00';
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
 
-
+SELECT * FROM `degrees` WHERE `level` LIKE 'm%';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 
