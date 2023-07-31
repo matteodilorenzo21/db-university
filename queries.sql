@@ -23,7 +23,7 @@ SELECT * FROM `exams` WHERE `date` = '2020-06-20' AND `hour` > '14:00:00';
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
 
-SELECT * FROM `degrees` WHERE `level` LIKE 'm%';
+SELECT * FROM `degrees` WHERE `level` = 'magistrale';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 
@@ -31,23 +31,23 @@ SELECT * FROM `departments`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT * FROM `teachers` WHERE `phone` IS NULL;
+SELECT COUNT(*) FROM `teachers` WHERE `phone` IS NULL;
 
 -- QUERY CON GROUP BY --
 
 
 -- 1. Contare quanti iscritti ci sono stati ogni anno
 
-
+SELECT COUNT(*),YEAR(`enrolment_date`) AS `year_of_enrolment` FROM `students` GROUP BY `year_of_enrolment`;
 
 -- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
-
+SELECT COUNT(*),`office_address` FROM `teachers` GROUP BY `office_address`;
 
 -- 3. Calcolare la media dei voti di ogni appello d'esame
 
-
+SELECT `exam_id`, ROUND(AVG(`vote`)) FROM `exam_student` GROUP BY `exam_id`;
 
 -- 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 
-
+SELECT `department_id`, COUNT(*) FROM `degrees` GROUP BY `department_id`;
