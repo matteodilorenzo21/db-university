@@ -63,7 +63,7 @@ SELECT S.* FROM `degrees` AS D JOIN `students` AS S ON D.`id` = S.`degree_id` WH
 
 -- 2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
 
-
+SELECT DPT.`name`, DGR.`name`, DGR.`level`, DGR.`address`, DGR.`email`, DGR.`website` FROM `departments` AS DPT JOIN `degrees` AS DGR ON DPT.`id` = DGR.`department_id` WHERE DPT.`name` = 'Dipartimento di Neuroscienze';
 
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
